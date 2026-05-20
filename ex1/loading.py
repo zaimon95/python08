@@ -25,35 +25,38 @@ def check_dependencies() -> bool:
 def main() -> None:
     print("LOADING STATUS: Loading programs...\n")
 
-    if not check_dependencies():
-        print("\nInstall dependencies:")
-        print("pip install -r requirements.txt")
-        print("or")
-        print("poetry install")
-        sys.exit(1)
+    try:
+        if not check_dependencies():
+            print("\nInstall dependencies:")
+            print("pip install -r requirements.txt")
+            print("or")
+            print("poetry install")
+            sys.exit(1)
 
-    import numpy as np
-    import pandas as pd
-    import matplotlib.pyplot as plt
+        import numpy as np
+        import pandas as pd
+        import matplotlib.pyplot as plt
 
-    print("\nAnalyzing Matrix data...")
+        print("\nAnalyzing Matrix data...")
 
-    data = np.random.normal(50, 15, 1000)
+        data = np.random.normal(50, 15, 1000)
 
-    df = pd.DataFrame({"signal_strength": data})
+        df = pd.DataFrame({"signal_strength": data})
 
-    print(f"Processing {len(df)} data points...")
+        print(f"Processing {len(df)} data points...")
 
-    plt.hist(df["signal_strength"], bins=30)
-    plt.title("Matrix Signal Analysis")
-    plt.xlabel("Signal Strength")
-    plt.ylabel("Frequency")
+        plt.hist(df["signal_strength"], bins=30)
+        plt.title("Matrix Signal Analysis")
+        plt.xlabel("Signal Strength")
+        plt.ylabel("Frequency")
 
-    plt.savefig("matrix_analysis.png")
+        plt.savefig("matrix_analysis.png")
 
-    print("Generating visualization...")
-    print("\nAnalysis complete!")
-    print("Results saved to: matrix_analysis.png")
+        print("Generating visualization...")
+        print("\nAnalysis complete!")
+        print("Results saved to: matrix_analysis.png")
+    except Exception as e:
+        ERROR
 
 
 if __name__ == "__main__":
