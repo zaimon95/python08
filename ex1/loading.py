@@ -55,8 +55,8 @@ def main() -> None:
         print("Generating visualization...")
         print("\nAnalysis complete!")
         print("Results saved to: matrix_analysis.png")
-    except Exception as e:
-        ERROR
+    except ImportError:
+        print("ERROR")
 
 
 if __name__ == "__main__":
